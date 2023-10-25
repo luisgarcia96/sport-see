@@ -1,0 +1,21 @@
+@use "../abstracts" as a;
+
+body {
+}
+
+h1 {
+}
+
+h2 {
+}
+
+@include a.small-screen {
+	body {
+	}
+
+	h1 {
+	}
+
+	h2 {
+	}
+}
