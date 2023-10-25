@@ -1,21 +1,16 @@
 @use "../abstracts" as a;
 
 body {
+	font-family: a.$ff-standard;
+	line-height: a.$lh-standard;
 }
 
 h1 {
+	font-size: a.$fs-xxx-lg;
+	font-weight: a.$fw-normal;
 }
 
 h2 {
-}
-
-@include a.small-screen {
-	body {
-	}
-
-	h1 {
-	}
-
-	h2 {
-	}
+	font-size: a.$fs-x-sm;
+	font-weight: a.$fw-normal;
 }

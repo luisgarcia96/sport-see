@@ -1,13 +1,11 @@
 //Color variables
-$color-primary: #ff6060;
-
-$gray-lighter: #f6f6f6;
-$gray-normal: #e3e3e3;
-$gray-darker: #c4c4c4;
-
-$color-white: #fff;
-$color-black: #000;
+$red: #FF0101;
+$red-opaque: rgba(255, 1, 1, 0.7);
+$black: #000;
+$black-normal: #020203;
+$black-light: #282D30;
+$grey: #FBFBFB;
+$white: #FFF;
 
 //Transition and animation time variables
-$tt-arrow-turn: 350ms;
-$tt-card-display: 300ms;
+$tt-standard: 350ms;
