@@ -1,0 +1,36 @@
+@use "../../styles/abstracts" as v; //Variables
+
+.topbar {
+	background-color: v.$black-normal;
+	padding: 1.19rem 1.81rem 0.89rem 1.81rem;
+    width: 86.4rem;
+	display: flex;
+    max-width: 86.4rem;
+
+	.logo {
+	}
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+
+		.navList {
+            display: flex;
+            gap: 12.75rem;
+
+			.navItem {
+				color: v.$white;
+				list-style: none;
+				font-size: v.$fs-x-lg;
+                cursor: pointer;
+
+				a {
+					text-decoration: none;
+					color: v.$white;
+				}
+			}
+		}
+	}
+}
