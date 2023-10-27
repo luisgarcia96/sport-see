@@ -1,11 +1,13 @@
 @use "../../styles/abstracts" as v; //Variables
 
 .topbar {
+	position: fixed;
+	top: 0;
 	background-color: v.$black-normal;
 	padding: 1.19rem 1.81rem 0.89rem 1.81rem;
-    width: 86.4rem;
+    width: 100vw;
 	display: flex;
-    max-width: 86.4rem;
+	z-index: 2;
 
 	.logo {
 	}
