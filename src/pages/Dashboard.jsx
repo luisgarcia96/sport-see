@@ -1,6 +1,7 @@
 import React from "react";
 
 import IntakeTile from "../components/IntakeTile/IntakeTile";
+import BarGraph from "../components/BarGraph/BarGraph";
 
 import User from "../mocks/user.json";
 
@@ -17,10 +18,15 @@ const Dashboard = () => {
 				</h1>
 				<p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 			</div>
-			<div className={styles.graphicsContainer}>Graphics go here</div>
+			<div className={styles.graphicsContainer}>
+				<div className={styles.top}>
+					<BarGraph />
+				</div>
+				<div className={styles.bottom}></div>
+			</div>
 			<aside className={styles.intakeContainer}>
 				{Object.entries(keyData).map(([intake, count]) => (
-					<IntakeTile type={intake} intakeCount={count} key={intake}/>
+					<IntakeTile type={intake} intakeCount={count} key={intake} />
 				))}
 			</aside>
 		</div>
