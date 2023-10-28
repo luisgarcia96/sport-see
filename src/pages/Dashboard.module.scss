@@ -1,0 +1,33 @@
+@use "../styles/abstracts" as v; //Variables
+
+.dashboard {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 11rem;
+	margin-left: 14rem;
+	margin-right: 5.62rem;
+	gap: 1.75rem;
+
+	.titleContainer {
+		width: 100%;
+		h1 {
+			margin-bottom: 2.56rem;
+			.name {
+				color: v.$red;
+			}
+		}
+		p {
+			font-size: v.$fs-md;
+		}
+	}
+	.graphicsContainer {
+		flex: 1;
+	}
+
+	.intakeContainer {
+		width: 16.125rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.44rem;
+	}
+}
