@@ -5,28 +5,38 @@
 	top: 0;
 	background-color: v.$black-normal;
 	padding: 1.19rem 1.81rem 0.89rem 1.81rem;
-    width: 100vw;
+	width: 100vw;
 	display: flex;
 	z-index: 2;
 
-	.logo {
+	.logoContainer {
+		.logo {
+			width: 100%;
+		}
+		@include v.large-screen {
+			width: 12rem;
+		}
 	}
 
-    .nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
+	.nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
 
 		.navList {
-            display: flex;
-            gap: 12.75rem;
+			display: flex;
+			gap: 12.75rem;
+
+			@include v.large-screen {
+				gap: 10rem;
+			}
 
 			.navItem {
 				color: v.$white;
 				list-style: none;
 				font-size: v.$fs-x-lg;
-                cursor: pointer;
+				cursor: pointer;
 
 				a {
 					text-decoration: none;

@@ -7,7 +7,7 @@ import styles from "./TopBar.module.scss";
 const TopBar = () => {
 	return (
 		<div className={styles.topbar}>
-			<a href="/">
+			<a href="/" className={styles.logoContainer}>
 				<img src={logo} alt="Logo" className={styles.logo} />
 			</a>
 			<nav className={styles.nav}>
