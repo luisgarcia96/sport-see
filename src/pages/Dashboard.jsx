@@ -6,6 +6,7 @@ import BarGraph from "../components/BarGraph/BarGraph";
 import User from "../mocks/user.json";
 
 import styles from "./Dashboard.module.scss";
+import LineGraph from "../components/LineGraph/LineGraph";
 
 const Dashboard = () => {
 	const { keyData } = User.data;
@@ -22,7 +23,9 @@ const Dashboard = () => {
 				<div className={styles.top}>
 					<BarGraph />
 				</div>
-				<div className={styles.bottom}></div>
+				<div className={styles.bottom}>
+                    <LineGraph />
+                </div>
 			</div>
 			<aside className={styles.intakeContainer}>
 				{Object.entries(keyData).map(([intake, count]) => (
