@@ -1,14 +1,14 @@
 import React from "react";
 
 import IntakeTile from "../components/IntakeTile/IntakeTile";
-import BarGraph from "../components/BarGraph/BarGraph";
+import BarGraph from "../components/Charts/BarGraph/BarGraph";
+import LineGraph from "../components/Charts/LineGraph/LineGraph";
+import RadarGraph from "../components/Charts/RadarGraph/RadarGraph";
+import RadialBarGraph from "../components/Charts/RadialBarGraph/RadialBarGraph";
 
 import User from "../mocks/user.json";
 
 import styles from "./Dashboard.module.scss";
-import LineGraph from "../components/LineGraph/LineGraph";
-import RadarGraph from "../components/RadarGraph/RadarGraph";
-import RadialBarGraph from "../components/RadialBarGraph/RadialBarGraph";
 
 const Dashboard = () => {
 	const { keyData } = User.data;
