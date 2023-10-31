@@ -8,6 +8,7 @@ import User from "../mocks/user.json";
 import styles from "./Dashboard.module.scss";
 import LineGraph from "../components/LineGraph/LineGraph";
 import RadarGraph from "../components/RadarGraph/RadarGraph";
+import RadialBarGraph from "../components/RadialBarGraph/RadialBarGraph";
 
 const Dashboard = () => {
 	const { keyData } = User.data;
@@ -27,6 +28,7 @@ const Dashboard = () => {
 				<div className={styles.bottom}>
                     <LineGraph />
                     <RadarGraph />
+                    <RadialBarGraph />
                 </div>
 			</div>
 			<aside className={styles.intakeContainer}>
