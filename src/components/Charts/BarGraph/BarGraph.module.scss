@@ -1,4 +1,8 @@
 @use "../../../styles/abstracts" as v; //Variables
 
 .barGraphContainer {
+    width: 100%;
+    height: 100%;
+    background-color: v.$gray-light;
+    border-radius: 5px;
 }

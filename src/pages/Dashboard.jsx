@@ -1,9 +1,9 @@
 import React from "react";
 
 import IntakeTile from "../components/IntakeTile/IntakeTile";
-// import BarGraph from "../components/Charts/BarGraph/BarGraph";
-// import LineGraph from "../components/Charts/LineGraph/LineGraph";
-// import RadarGraph from "../components/Charts/RadarGraph/RadarGraph";
+import BarGraph from "../components/Charts/BarGraph/BarGraph";
+import LineGraph from "../components/Charts/LineGraph/LineGraph";
+import RadarGraph from "../components/Charts/RadarGraph/RadarGraph";
 import RadialBarGraph from "../components/Charts/RadialBarGraph/RadialBarGraph";
 
 import User from "../mocks/user.json";
@@ -23,11 +23,11 @@ const Dashboard = () => {
 			</div>
 			<div className={styles.graphicsContainer}>
 				<div className={styles.top}>
-					{/* <BarGraph /> */}
+					<BarGraph />
 				</div>
 				<div className={styles.bottom}>
-                    {/* <LineGraph /> */}
-                    {/* <RadarGraph /> */}
+                    <LineGraph />
+                    <RadarGraph />
                     <RadialBarGraph />
                 </div>
 			</div>

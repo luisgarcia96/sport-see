@@ -52,24 +52,22 @@ const data = [
 
 const RadarGraph = () => {
 	return (
-		<ResponsiveContainer
-			width="100%"
-			height="100%"
-			className={styles.radarGraphContainer}
-		>
-			<RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-				<PolarGrid />
-				<PolarAngleAxis dataKey="subject" />
-				<PolarRadiusAxis />
-				<Radar
-					name="Mike"
-					dataKey="A"
-					stroke="#8884d8"
-					fill="#8884d8"
-					fillOpacity={0.6}
-				/>
-			</RadarChart>
-		</ResponsiveContainer>
+		<div className={styles.radarGraphContainer}>
+			<ResponsiveContainer width="100%" height="100%">
+				<RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
+					<PolarGrid />
+					<PolarAngleAxis dataKey="subject" />
+					<PolarRadiusAxis />
+					<Radar
+						name="Mike"
+						dataKey="A"
+						stroke="#8884d8"
+						fill="#8884d8"
+						fillOpacity={0.6}
+					/>
+				</RadarChart>
+			</ResponsiveContainer>
+		</div>
 	);
 };
 
