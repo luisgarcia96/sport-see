@@ -1,4 +1,51 @@
 @use "../../../styles/abstracts" as v; //Variables
 
 .radialBarGraphContainer {
+	position: relative;
+	width: 258px;
+	height: 263px;
+	background-color: v.$gray-light;
+	border-radius: 5px;
+
+	.textContainer {
+		position: absolute;
+		top: 55%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		p {
+			margin: 0;
+		}
+
+		.percentage {
+			font-size: v.$fs-xx-lg;
+			font-weight: v.$fw-bold;
+			margin-bottom: 0.35rem;
+			text-align: center;
+		}
+
+		.description {
+			font-size: v.$fs-sm;
+			color: v.$gray;
+			width: 4rem;
+			text-align: center;
+		}
+	}
+
+	&::before {
+		//Add a transparent circle in the center of the graph
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 10rem;
+		height: 10rem;
+		background-color: #fff;
+		border-radius: 50%;
+	}
 }
