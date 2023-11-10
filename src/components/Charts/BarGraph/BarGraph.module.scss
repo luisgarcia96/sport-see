@@ -1,8 +1,72 @@
 @use "../../../styles/abstracts" as v; //Variables
 
 .barGraphContainer {
-    width: 100%;
-    height: 100%;
-    background-color: v.$gray-light;
-    border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: v.$gray-light;
+	border-radius: 5px;
+
+	.barGraphHeader {
+		width: 100%;
+		padding: 0 45px;
+        margin: 1rem 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		box-sizing: border-box;
+
+		.barGraphLegend {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+            font-size: v.$fs-xx-sm;
+            color: v.$gray;
+
+			&_One {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+
+				.circle {
+					width: 8px;
+					height: 8px;
+					border-radius: 50%;
+					background-color: v.$black;
+				}
+			}
+
+			&_Two {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+
+				.circle {
+					width: 8px;
+					height: 8px;
+					border-radius: 50%;
+					background-color: v.$red;
+				}
+			}
+		}
+	}
+}
+
+.barGraphTooltip {
+	background-color: v.$red;
+	padding: 0.25rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+
+	.label {
+		color: v.$white;
+		font-size: v.$fs-xxxx-sm;
+		margin: 0;
+	}
 }
