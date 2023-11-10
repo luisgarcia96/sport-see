@@ -7,4 +7,23 @@
     max-height: 263px;
     background-color: v.$red;
     border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+
+    h2 {
+        position: absolute;
+        color: v.$white;
+        opacity: 0.504;
+        margin: 1.5rem 3rem 0 1.5rem;
+    }
+}
+
+.lineGraphTooltip {
+    background-color: v.$white;
+    padding: 0.25rem 0.5rem;
+
+    p {
+        font-size: v.$fs-xxx-sm;
+        margin: 0;
+    }
 }

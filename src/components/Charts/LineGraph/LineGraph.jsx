@@ -1,59 +1,51 @@
 import React from "react";
 
-import {
-	LineChart,
-	Line,
-	XAxis,
-	YAxis,
-	CartesianGrid,
-	Tooltip,
-	Legend,
-	ResponsiveContainer,
-} from "recharts";
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
+import CustomLineGraphTooltip from "./components/CustomLineGraphTooltip";
 
 import styles from "./LineGraph.module.scss";
 
 const data = [
 	{
-		name: "Page A",
+		name: "L",
 		uv: 4000,
-		pv: 2400,
+		pv: 200,
 		amt: 2400,
 	},
 	{
-		name: "Page B",
+		name: "M",
 		uv: 3000,
-		pv: 1398,
+		pv: 200,
 		amt: 2210,
 	},
 	{
-		name: "Page C",
+		name: "M",
 		uv: 2000,
-		pv: 9800,
+		pv: 280,
 		amt: 2290,
 	},
 	{
-		name: "Page D",
+		name: "J",
 		uv: 2780,
-		pv: 3908,
+		pv: 120,
 		amt: 2000,
 	},
 	{
-		name: "Page E",
+		name: "V",
 		uv: 1890,
-		pv: 4800,
+		pv: 450,
 		amt: 2181,
 	},
 	{
-		name: "Page F",
+		name: "S",
 		uv: 2390,
-		pv: 3800,
+		pv: 240,
 		amt: 2500,
 	},
 	{
-		name: "Page G",
-		uv: 3490,
-		pv: 4300,
+		name: "D",
+		uv: 5490,
+		pv: 200,
 		amt: 2100,
 	},
 ];
@@ -61,30 +53,38 @@ const data = [
 const LineGraph = () => {
 	return (
 		<div className={styles.lineGraphContainer}>
+			<h2>Durée moyenne des sessions</h2>
 			<ResponsiveContainer width="100%" height="100%">
 				<LineChart
-					width={500}
-					height={300}
+					width={300}
+					height={100}
 					data={data}
-					margin={{
-						top: 5,
-						right: 30,
-						left: 20,
-						bottom: 5,
+					strokeWidth={0.4}
+					onMouseMove={(e) => {
+						if (e.isTooltipActive) {
+							console.log(e);
+						}
 					}}
 				>
-					<CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="name" />
-					<YAxis />
-					<Tooltip />
-					<Legend />
+					<XAxis
+						dataKey="name"
+						stroke="#fff"
+						opacity={0.5}
+						axisLine={false}
+						tickLine={false}
+						padding={{ left: 10, right: 10 }}
+						// transform="scale(0.95) translate(5, 5)"
+					/>
+					<Tooltip content={<CustomLineGraphTooltip />} />
 					<Line
 						type="monotone"
 						dataKey="pv"
-						stroke="#8884d8"
-						activeDot={{ r: 8 }}
+						stroke="rgba(255, 255, 255, 0.7)"
+						strokeWidth={2}
+						dot={false}
+						activeDot={{ r: 2, strokeWidth: 4, stroke: "white" }}
+						// transform="scale(1.1, 1) translate(-10, 0)"
 					/>
-					<Line type="monotone" dataKey="uv" stroke="#82ca9d" />
 				</LineChart>
 			</ResponsiveContainer>
 		</div>

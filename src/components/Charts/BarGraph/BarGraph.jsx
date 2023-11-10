@@ -8,7 +8,7 @@ import {
 	Tooltip,
 	ResponsiveContainer,
 } from "recharts";
-import CustomTooltip from "./components/CustomTooltip";
+import CustomBarGraphTooltip from "./components/CustomBarGraphTooltip";
 import RoundedBar from "./components/RoundedBar";
 import styles from "./BarGraph.module.scss";
 
@@ -123,7 +123,7 @@ const BarGraph = () => {
 						dx={35}
 						tick={{ fontSize: 14 }}
 					/>
-					<Tooltip content={<CustomTooltip />} />
+					<Tooltip content={<CustomBarGraphTooltip />} />
 					<Bar dataKey="pv" fill="#020203" barSize={8} shape={<RoundedBar />} />
 					<Bar dataKey="uv" fill="#FF0101" barSize={8} shape={<RoundedBar />} />
 				</BarChart>

@@ -1,9 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 import styles from "../BarGraph.module.scss";
 
-const CustomTooltip = ({ payload, active }) => {
+const CustomBarGraphTooltip = ({ payload, active }) => {
 	if (active) {
 		return (
 			<div className={styles.barGraphTooltip}>
@@ -16,9 +15,9 @@ const CustomTooltip = ({ payload, active }) => {
 	return null;
 };
 
-export default CustomTooltip;
+export default CustomBarGraphTooltip;
 
-CustomTooltip.propTypes = {
+CustomBarGraphTooltip.propTypes = {
 	payload: PropTypes.arrayOf(
 		PropTypes.shape({
 			dataKey: PropTypes.string,
