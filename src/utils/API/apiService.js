@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import useFetch from "../hooks/useFetch";
-import UsersArray from "../../../public/mocks/user.json";
+import UsersArray from "../../mocks/user.json";
 
 const findUserById = (id) => {
 	const user = UsersArray.find((user) => user.data.id === Number(id));
