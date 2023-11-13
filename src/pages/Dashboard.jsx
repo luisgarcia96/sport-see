@@ -6,12 +6,22 @@ import LineGraph from "../components/Charts/LineGraph/LineGraph";
 import RadarGraph from "../components/Charts/RadarGraph/RadarGraph";
 import RadialBarGraph from "../components/Charts/RadialBarGraph/RadialBarGraph";
 
-import User from "../mocks/user.json";
+import { useGetUserData } from "../utils/API/apiService";
 
 import styles from "./Dashboard.module.scss";
 
 const Dashboard = () => {
-	const { keyData } = User.data;
+	//Get userId from URL
+	const url = window.location.href;
+	const userId = url.split("/")[3];
+
+	//Get user data from API
+	const { user, loading } = useGetUserData(userId);
+
+	if (loading) {
+		return <div>Loading...</div>;
+	}
+	const { keyData } = user.data;
 
 	return (
 		<div className={styles.dashboard}>
@@ -26,10 +36,10 @@ const Dashboard = () => {
 					<BarGraph />
 				</div>
 				<div className={styles.bottom}>
-                    <LineGraph />
-                    <RadarGraph />
-                    <RadialBarGraph />
-                </div>
+					<LineGraph />
+					<RadarGraph />
+					<RadialBarGraph />
+				</div>
 			</div>
 			<aside className={styles.intakeContainer}>
 				{Object.entries(keyData).map(([intake, count]) => (
