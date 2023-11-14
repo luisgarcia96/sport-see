@@ -60,11 +60,12 @@ const LineGraph = () => {
 					height={100}
 					data={data}
 					strokeWidth={0.4}
-					onMouseMove={(e) => {
-						if (e.isTooltipActive) {
-							console.log(e);
-						}
-					}}
+					transform="scale(1.1, 1)"
+					// onMouseMove={(e) => {
+					// 	if (e.isTooltipActive) {
+					// 		console.log(e);
+					// 	}
+					// }}
 				>
 					<XAxis
 						dataKey="name"
@@ -72,8 +73,11 @@ const LineGraph = () => {
 						opacity={0.5}
 						axisLine={false}
 						tickLine={false}
-						padding={{ left: 10, right: 10 }}
-						// transform="scale(0.95) translate(5, 5)"
+						// padding={{ left: 10, right: 10 }}
+						dy={30}
+						transform="scale(0.85) translate(25, 0)"
+						dx={0}
+						fontSize={14}
 					/>
 					<Tooltip content={<CustomLineGraphTooltip />} />
 					<Line
