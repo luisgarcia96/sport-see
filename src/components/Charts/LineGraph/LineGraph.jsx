@@ -73,7 +73,6 @@ const LineGraph = () => {
 						axisLine={false}
 						tickLine={false}
 						padding={{ left: 10, right: 10 }}
-						// transform="scale(0.95) translate(5, 5)"
 					/>
 					<Tooltip content={<CustomLineGraphTooltip />} />
 					<Line
@@ -83,7 +82,6 @@ const LineGraph = () => {
 						strokeWidth={2}
 						dot={false}
 						activeDot={{ r: 2, strokeWidth: 4, stroke: "white" }}
-						// transform="scale(1.1, 1) translate(-10, 0)"
 					/>
 				</LineChart>
 			</ResponsiveContainer>
