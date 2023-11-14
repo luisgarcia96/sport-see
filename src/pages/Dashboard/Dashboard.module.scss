@@ -1,4 +1,4 @@
-@use "../styles/abstracts" as v; //Variables
+@use "../../styles/abstracts" as v; //Variables
 
 .dashboard {
 	display: flex;
@@ -42,8 +42,8 @@
 
 	.intakeContainer {
 		width: 16.125rem;
-        display: flex;
-        flex-direction: column;
-        gap: 2.44rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2.44rem;
 	}
 }

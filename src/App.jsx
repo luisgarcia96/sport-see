@@ -1,6 +1,6 @@
 import SideBar from "./layouts/sideBar/sideBar";
 import TopBar from "./layouts/topBar/topBar";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 import "./styles/main.scss";
 
