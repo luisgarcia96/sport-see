@@ -1,6 +1,7 @@
 @use "../../../styles/abstracts" as v; //Variables
 
 .lineGraphContainer {
+    position: relative;
     width: 33%;
     max-width: 258px;
     height: 100%;
@@ -15,6 +16,16 @@
         color: v.$white;
         opacity: 0.504;
         margin: 1.5rem 3rem 0 1.5rem;
+    }
+
+    .higlightedZone {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 263px;
+        background-color: #9d2323;
+        opacity: 0.2;
+    
     }
 }
 

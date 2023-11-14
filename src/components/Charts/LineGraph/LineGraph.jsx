@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import CustomLineGraphTooltip from "./components/CustomLineGraphTooltip";
@@ -51,8 +51,47 @@ const data = [
 ];
 
 const LineGraph = () => {
+	//State
+	const [highlightedWidth, setHighlightedWidth] = useState(0);
+	const [currentXcoordinate, setCurrentXcoordinate] = useState(-1);
+
+	//Refs
+	const lineGraphContainer = useRef(null);
+
+	/**
+	 * Returns the width of the line graph container element.
+	 * @returns {number} The width of the line graph container element.
+	 */
+	const getLineGraphContainerWidth = () => {
+		if (lineGraphContainer.current) {
+			return lineGraphContainer.current.getBoundingClientRect().width;
+		}
+		return 0;
+	};
+
+	/**
+	 * Handles the hover event on the LineGraph component.
+	 * @param {object} e - The event object.
+	 */
+	const handleHover = useCallback((e) => {
+		if (e.isTooltipActive) {
+			setCurrentXcoordinate(e.activeCoordinate.x);
+		} else {
+			setCurrentXcoordinate(-1);
+		}
+	}, []);
+
+	useEffect(() => {
+		if (currentXcoordinate >= 0) {
+			const width = getLineGraphContainerWidth();
+			setHighlightedWidth(width - currentXcoordinate);
+		} else {
+			setHighlightedWidth(0);
+		}
+	}, [currentXcoordinate]);
+
 	return (
-		<div className={styles.lineGraphContainer}>
+		<div className={styles.lineGraphContainer} ref={lineGraphContainer}>
 			<h2>Durée moyenne des sessions</h2>
 			<ResponsiveContainer width="100%" height="100%">
 				<LineChart
@@ -61,10 +100,9 @@ const LineGraph = () => {
 					data={data}
 					strokeWidth={0.4}
 					onMouseMove={(e) => {
-						if (e.isTooltipActive) {
-							console.log(e);
-						}
+						handleHover(e);
 					}}
+					style={{ position: "relative", zIndex: 2 }}
 				>
 					<XAxis
 						dataKey="name"
@@ -82,9 +120,16 @@ const LineGraph = () => {
 						strokeWidth={2}
 						dot={false}
 						activeDot={{ r: 2, strokeWidth: 4, stroke: "white" }}
+						style={{ zIndex: 3 }}
 					/>
 				</LineChart>
 			</ResponsiveContainer>
+			{highlightedWidth > 0 && (
+				<div
+					className={styles.higlightedZone}
+					style={{ width: highlightedWidth, pointerEvents: "none" }}
+				></div>
+			)}
 		</div>
 	);
 };
