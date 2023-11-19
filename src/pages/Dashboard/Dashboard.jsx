@@ -8,6 +8,7 @@ import {
 	useGetUserData,
 	useGetUserActivity,
 	useGetUserSessions,
+	useGetUserPerformance,
 } from "../../api/dataFetchService";
 
 import styles from "./Dashboard.module.scss";
@@ -25,10 +26,14 @@ const Dashboard = () => {
 	);
 	const { sessions, loading: loadingSessions } = useGetUserSessions(
 		userId,
-		false
+		true
+	);
+	const { performance, loading: loadingPerformance } = useGetUserPerformance(
+		userId,
+		true
 	);
 
-	const isLoadingDashboard = loadingUser || loadingActivity || loadingSessions;
+	const isLoadingDashboard = loadingUser || loadingActivity || loadingSessions || loadingPerformance;
 
 	if (isLoadingDashboard) {
 		return <div>Loading...</div>;

@@ -30,9 +30,10 @@ const formatName = (data) => {
 		"Intensité",
 	];
 
-	for (let i = 0; i < kinds.length; i++) {
-		data.data.data[i].kind = kinds[i];
-	}
+	data.data.data = data.data.data.map((item, index) => {
+		item.kind = kinds[index];
+		return item;
+	});
 
 	return data;
 };
