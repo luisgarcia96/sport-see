@@ -1,19 +1,18 @@
-
 /**
  * Formats the week data by replacing the day number with its corresponding letter.
  * @param {Object} data - The data object containing the week sessions.
  * @returns {Object} The formatted data object.
  */
 const formatWeek = (data) => {
-    const daysArray = ["L", "M", "M", "J", "V", "S", "D"];
+	const daysArray = ["L", "M", "M", "J", "V", "S", "D"];
 
-    for (const day of data.data.sessions) {
-        day.day = daysArray;
-    }
+	data.data.sessions = data.data.sessions.map((day, index) => {
+		day.day = daysArray[index];
+		return day;
+	});
 
-    return data;
+	return data;
 };
-
 
 /**
  * Formats the data by adding a kind property to each object in the data array.
@@ -22,22 +21,21 @@ const formatWeek = (data) => {
  * @returns {Object} - The formatted data.
  */
 const formatName = (data) => {
-    const kinds = [
-        "Cardio",
-        "Energie",
-        "Endurance",
-        "Force",
-        "Vitesse",
-        "Intensité",
-    ];
+	const kinds = [
+		"Cardio",
+		"Energie",
+		"Endurance",
+		"Force",
+		"Vitesse",
+		"Intensité",
+	];
 
-    for (let i = 0; i < kinds.length; i++) {
-        data.data.data[i].kind = kinds[i];
-    }
+	for (let i = 0; i < kinds.length; i++) {
+		data.data.data[i].kind = kinds[i];
+	}
 
-    return data;
+	return data;
 };
-
 
 /**
  * Formats the score data by setting the `formatedScore` property to either `todayScore` or `score`.
@@ -45,8 +43,8 @@ const formatName = (data) => {
  * @returns {Object} The formatted score data.
  */
 const formatScore = (data) => {
-    data.data.formatedScore = data.data.todayScore || data.data.score;
-    return data;
+	data.data.formatedScore = data.data.todayScore || data.data.score;
+	return data;
 };
 
 export { formatWeek, formatName, formatScore };

@@ -4,7 +4,11 @@ import Greeting from "./components/Greeting";
 import GraphicsContainer from "./components/GraphicsContainer";
 import IntakesContainer from "./components/IntakesContainer";
 
-import { useGetUserData, useGetUserActivity } from "../../api/dataFetchService";
+import {
+	useGetUserData,
+	useGetUserActivity,
+	useGetUserSessions,
+} from "../../api/dataFetchService";
 
 import styles from "./Dashboard.module.scss";
 
@@ -19,13 +23,16 @@ const Dashboard = () => {
 		userId,
 		false
 	);
+	const { sessions, loading: loadingSessions } = useGetUserSessions(
+		userId,
+		false
+	);
 
-	const isLoadingDashboard = loadingUser || loadingActivity;
+	const isLoadingDashboard = loadingUser || loadingActivity || loadingSessions;
 
 	if (isLoadingDashboard) {
 		return <div>Loading...</div>;
 	}
-
 
 	const { keyData } = user.data;
 	const { firstName } = user.data.userInfos;
