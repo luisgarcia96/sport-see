@@ -1,56 +1,19 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import PropTypes from "prop-types";
 
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from "recharts";
 import CustomLineGraphTooltip from "./components/CustomLineGraphTooltip";
 
 import styles from "./LineGraph.module.scss";
 
-const data = [
-	{
-		name: "L",
-		uv: 4000,
-		pv: 200,
-		amt: 2400,
-	},
-	{
-		name: "M",
-		uv: 3000,
-		pv: 200,
-		amt: 2210,
-	},
-	{
-		name: "M",
-		uv: 2000,
-		pv: 280,
-		amt: 2290,
-	},
-	{
-		name: "J",
-		uv: 2780,
-		pv: 120,
-		amt: 2000,
-	},
-	{
-		name: "V",
-		uv: 1890,
-		pv: 450,
-		amt: 2181,
-	},
-	{
-		name: "S",
-		uv: 2390,
-		pv: 240,
-		amt: 2500,
-	},
-	{
-		name: "D",
-		uv: 5490,
-		pv: 200,
-		amt: 2100,
-	},
-];
+const LineGraph = ({ sessionsData }) => {
+	const formatedSessionsData = sessionsData.map((session) => {
+		return {
+			name: session.day,
+			pv: session.sessionLength,
+		};
+	});
 
-const LineGraph = () => {
 	//State
 	const [highlightedWidth, setHighlightedWidth] = useState(0);
 	const [currentXcoordinate, setCurrentXcoordinate] = useState(-1);
@@ -97,7 +60,7 @@ const LineGraph = () => {
 				<LineChart
 					width={300}
 					height={100}
-					data={data}
+					data={formatedSessionsData}
 					strokeWidth={0.4}
 					onMouseMove={(e) => {
 						handleHover(e);
@@ -135,3 +98,7 @@ const LineGraph = () => {
 };
 
 export default LineGraph;
+
+LineGraph.propTypes = {
+	sessionsData: PropTypes.array.isRequired,
+};
