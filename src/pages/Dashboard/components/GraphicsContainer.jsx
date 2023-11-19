@@ -7,11 +7,14 @@ import RadialBarGraph from "../../../components/Charts/RadialBarGraph/RadialBarG
 
 import styles from "../Dashboard.module.scss";
 
-const GraphicsContainer = () => {
+const GraphicsContainer = ({activity, sessions, performance}) => {
+
+	const activityData = activity.data.sessions;
+
 	return (
 		<div className={styles.graphicsContainer}>
 			<div className={styles.top}>
-				<BarGraph />
+				<BarGraph activityData={activityData}/>
 			</div>
 			<div className={styles.bottom}>
 				<LineGraph />

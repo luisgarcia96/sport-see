@@ -33,7 +33,8 @@ const Dashboard = () => {
 		true
 	);
 
-	const isLoadingDashboard = loadingUser || loadingActivity || loadingSessions || loadingPerformance;
+	const isLoadingDashboard =
+		loadingUser || loadingActivity || loadingSessions || loadingPerformance;
 
 	if (isLoadingDashboard) {
 		return <div>Loading...</div>;
@@ -45,7 +46,11 @@ const Dashboard = () => {
 	return (
 		<div className={styles.dashboard}>
 			<Greeting name={firstName} />
-			<GraphicsContainer />
+			<GraphicsContainer
+				activity={activity}
+				sessions={sessions}
+				performance={performance}
+			/>
 			<IntakesContainer keyData={keyData} />
 		</div>
 	);
