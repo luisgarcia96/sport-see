@@ -3,7 +3,7 @@ export const findUserById = (usersArray, id) => {
 		throw new Error("Users array is undefined");
 	}
 
-	const user = usersArray?.find((user) => user.data.id === Number(id));
+	const user = usersArray?.find((user) => user.data.id === Number(id) || user.data.userId === Number(id));
 	if (!user) {
 		throw new Error(`User with id ${id} not found`);
 	}

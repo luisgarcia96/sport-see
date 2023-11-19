@@ -4,7 +4,7 @@ import Greeting from "./components/Greeting";
 import GraphicsContainer from "./components/GraphicsContainer";
 import IntakesContainer from "./components/IntakesContainer";
 
-import { useGetUserData } from "../../api/dataFetchService";
+import { useGetUserData, useGetUserActivity } from "../../api/dataFetchService";
 
 import styles from "./Dashboard.module.scss";
 
@@ -13,12 +13,19 @@ const Dashboard = () => {
 	const url = window.location.href;
 	const userId = url.split("/")[3];
 
-	//Get user data from API
-	const { user, loading } = useGetUserData(userId, true);
+	//Get data from API
+	const { user, loading: loadingUser } = useGetUserData(userId, true);
+	const { activity, loading: loadingActivity } = useGetUserActivity(
+		userId,
+		false
+	);
 
-	if (loading) {
+	const isLoadingDashboard = loadingUser || loadingActivity;
+
+	if (isLoadingDashboard) {
 		return <div>Loading...</div>;
 	}
+
 
 	const { keyData } = user.data;
 	const { firstName } = user.data.userInfos;
