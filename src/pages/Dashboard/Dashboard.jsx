@@ -4,7 +4,7 @@ import Greeting from "./components/Greeting";
 import GraphicsContainer from "./components/GraphicsContainer";
 import IntakesContainer from "./components/IntakesContainer";
 
-import { useGetUserData } from "../../utils/API/apiService";
+import { useGetUserData } from "../../api/dataFetchService";
 
 import styles from "./Dashboard.module.scss";
 
@@ -14,7 +14,7 @@ const Dashboard = () => {
 	const userId = url.split("/")[3];
 
 	//Get user data from API
-	const { user, loading } = useGetUserData(userId);
+	const { user, loading } = useGetUserData(userId, true);
 
 	if (loading) {
 		return <div>Loading...</div>;
