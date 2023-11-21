@@ -8,6 +8,7 @@ import styles from "./RadialBarGraph.module.scss";
 const RadialBarGraph = ({ score }) => {
 	return (
 		<div className={styles.radialBarGraphContainer}>
+			<h2>Score</h2>
 			<ResponsiveContainer width="100%" height="100%">
 				<RadialBarChart
 					innerRadius="0%"

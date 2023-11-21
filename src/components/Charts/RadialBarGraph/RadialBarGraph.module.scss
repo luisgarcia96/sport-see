@@ -9,6 +9,12 @@
 	background-color: v.$gray-light;
 	border-radius: 5px;
 
+	h2 {
+		position: absolute;
+		top: 0.5rem;
+		left: 1.5rem;
+	}
+
 	.textContainer {
 		position: absolute;
 		top: 55%;
