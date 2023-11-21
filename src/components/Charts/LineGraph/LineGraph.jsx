@@ -56,7 +56,11 @@ const LineGraph = ({ sessionsData }) => {
 	return (
 		<div className={styles.lineGraphContainer} ref={lineGraphContainer}>
 			<h2>Durée moyenne des sessions</h2>
-			<ResponsiveContainer width="100%" height="100%">
+			<ResponsiveContainer
+				width="100%"
+				height="80%"
+				style={{ marginTop: "3rem" }}
+			>
 				<LineChart
 					width={300}
 					height={100}
