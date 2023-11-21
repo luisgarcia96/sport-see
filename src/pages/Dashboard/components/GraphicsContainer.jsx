@@ -19,7 +19,7 @@ const GraphicsContainer = ({ activity, sessions, performance }) => {
 			</div>
 			<div className={styles.bottom}>
 				<LineGraph sessionsData={sessionsData} />
-				<RadarGraph />
+				<RadarGraph performanceData={performance}/>
 				<RadialBarGraph />
 			</div>
 		</div>
