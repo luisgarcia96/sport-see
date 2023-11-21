@@ -1,43 +1,43 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 
 import styles from "./RadialBarGraph.module.scss";
 
-const data = [
-	{
-		name: "18-24",
-		uv: 31.47,
-		pv: 2400,
-		fill: "#FF0101",
-	},
-];
-
-const RadialBarGraph = () => {
+const RadialBarGraph = ({ score }) => {
 	return (
 		<div className={styles.radialBarGraphContainer}>
 			<ResponsiveContainer width="100%" height="100%">
 				<RadialBarChart
-					cx="50%"
-					cy="50%"
-					innerRadius="70%"
-					outerRadius="80%"
-					barSize={9.5}
-					data={data}
+					innerRadius="0%"
+					outerRadius="0%"
+					data={score}
 					startAngle={-135}
-					endAngle={-475}
+					endAngle={-485}
 				>
-					<RadialBar 
-					minAngle={15} 
-					background 
-					clockWise 
-					dataKey="uv" 
-					cornerRadius={10}
+					<RadialBar
+						data={[{ value: 1 }]}
+						minAngle={15}
+						fillOpacity={1}
+						fill="#FFF"
+						barSize={165}
+						clockWise
+						dataKey="value"
+					/>
+					<RadialBar
+						minAngle={15}
+						fill="#FF0101"
+						barSize={10}
+						clockWise
+						dataKey={"value"}
+						data={[{ value: score }]}
+						cornerRadius={10}
 					/>
 				</RadialBarChart>
 			</ResponsiveContainer>
 			<div className={styles.textContainer}>
-				<p className={styles.percentage}>12%</p>
+				<p className={styles.percentage}>{score * 100}%</p>
 				<p className={styles.description}>de votre objectif</p>
 			</div>
 		</div>
@@ -45,3 +45,7 @@ const RadialBarGraph = () => {
 };
 
 export default RadialBarGraph;
+
+RadialBarGraph.propTypes = {
+	score: PropTypes.number.isRequired,
+};

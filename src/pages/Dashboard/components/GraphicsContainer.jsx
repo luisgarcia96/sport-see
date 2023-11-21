@@ -8,7 +8,7 @@ import RadialBarGraph from "../../../components/Charts/RadialBarGraph/RadialBarG
 
 import styles from "../Dashboard.module.scss";
 
-const GraphicsContainer = ({ activity, sessions, performance }) => {
+const GraphicsContainer = ({ activity, sessions, performance, score }) => {
 	const activityData = activity.data.sessions;
 	const sessionsData = sessions.data.sessions;
 
@@ -19,8 +19,8 @@ const GraphicsContainer = ({ activity, sessions, performance }) => {
 			</div>
 			<div className={styles.bottom}>
 				<LineGraph sessionsData={sessionsData} />
-				<RadarGraph performanceData={performance}/>
-				<RadialBarGraph />
+				<RadarGraph performanceData={performance} />
+				<RadialBarGraph score={score} />
 			</div>
 		</div>
 	);
@@ -32,4 +32,5 @@ GraphicsContainer.propTypes = {
 	activity: PropTypes.object.isRequired,
 	sessions: PropTypes.object.isRequired,
 	performance: PropTypes.object.isRequired,
+	score: PropTypes.number.isRequired,
 };

@@ -40,7 +40,7 @@ const Dashboard = () => {
 		return <div>Loading...</div>;
 	}
 
-	const { keyData } = user.data;
+	const { keyData, formatedScore } = user.data;
 	const { firstName } = user.data.userInfos;
 
 	return (
@@ -50,6 +50,7 @@ const Dashboard = () => {
 				activity={activity}
 				sessions={sessions}
 				performance={performance}
+				score={formatedScore}
 			/>
 			<IntakesContainer keyData={keyData} />
 		</div>
