@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import useWindowSizeMultiplier from "../../../hooks/useWIndowSizeMultiplier";
 
 import {
 	Radar,
@@ -12,6 +13,7 @@ import {
 import styles from "./RadarGraph.module.scss";
 
 const RadarGraph = ({ performanceData }) => {
+	const windowSizeMultiplier = useWindowSizeMultiplier();
 	const formatedPerformanceData = performanceData?.data.data.map(
 		(performance) => {
 			return {
@@ -20,6 +22,9 @@ const RadarGraph = ({ performanceData }) => {
 			};
 		}
 	);
+
+	//Calculate font size in function of window size
+	const fontSize = 10 * windowSizeMultiplier;
 
 	return (
 		<div className={styles.radarGraphContainer}>
@@ -36,7 +41,7 @@ const RadarGraph = ({ performanceData }) => {
 						stroke="#FFFFFF"
 						tickLine={false}
 						axisLine={false}
-						tick={{ fontSize: 12 }}
+						tick={{ fontSize: fontSize }}
 					/>
 					<Radar
 						dataKey="A"

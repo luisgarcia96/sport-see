@@ -35,3 +35,11 @@
 		}
 	}
 }
+
+@media (max-width: 1024px) {
+	.sidebar {
+		.sportButtonsContainer {
+			gap: 3rem;
+		}
+	}
+}

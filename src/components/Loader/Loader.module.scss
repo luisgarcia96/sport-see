@@ -1,0 +1,52 @@
+@use "../../styles/abstracts" as v; //Variables
+
+.loader {
+    margin-top: 48vh;
+    margin-left: 50vw;
+	width: 100px;
+	height: 100px;
+	position: relative;
+	div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 5%;
+			height: 5%;
+			background: v.$red-opaque;
+			border-radius: 50%;
+		}
+		@for $i from 1 through 12 {
+			&:nth-child(#{ $i }) {
+				transform: rotate($i * 30deg);
+				&::after {
+					animation-name: loader-highlight;
+					animation-duration: 1s;
+					animation-delay: $i * 90ms;
+					animation-fill-mode: forwards;
+					animation-iteration-count: infinite;
+				}
+			}
+		}
+
+		@keyframes loader-highlight {
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(3);
+			}
+			0% {
+				transform: scale(1);
+			}
+		}
+	}
+}

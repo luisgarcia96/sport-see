@@ -11,8 +11,8 @@ const RadialBarGraph = ({ score }) => {
 			<h2>Score</h2>
 			<ResponsiveContainer width="100%" height="100%">
 				<RadialBarChart
-					innerRadius="0%"
-					outerRadius="0%"
+					innerRadius="90%"
+					outerRadius="50%"
 					data={score}
 					startAngle={-135}
 					endAngle={-485}

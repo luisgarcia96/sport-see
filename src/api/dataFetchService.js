@@ -13,7 +13,12 @@ export const useGetUserData = (userId, isMockedData = false) => {
 		return { user: null, loading, error };
 	}
 
-	const rawUser = isMockedData ? findUserById(data, userId) : data;
+	let rawUser;
+	try {
+		rawUser = isMockedData ? findUserById(data, userId) : data;
+	} catch (error) {
+		return { user: null, loading: false, error };
+	}
 
 	const user = formatScore(rawUser); //Format the score property
 
@@ -31,7 +36,13 @@ export const useGetUserActivity = (userId, isMockedData = false) => {
 		return { activity: null, loading, error };
 	}
 
-	const activity = isMockedData ? findUserById(data, userId) : data;
+	let activity;
+
+	try {
+		activity = isMockedData ? findUserById(data, userId) : data;
+	} catch (error) {
+		return { activity: null, loading: false, error };
+	}
 
 	return { activity, loading, error };
 };
@@ -47,7 +58,12 @@ export const useGetUserSessions = (userId, isMockedData = false) => {
 		return { sessions: null, loading, error };
 	}
 
-	const rawSessions = isMockedData ? findUserById(data, userId) : data;
+	let rawSessions;
+	try {
+		rawSessions = isMockedData ? findUserById(data, userId) : data;
+	} catch (error) {
+		return { sessions: null, loading: false, error };
+	}
 
 	const sessions = formatWeek(rawSessions); //Format the weekdays
 
@@ -65,9 +81,14 @@ export const useGetUserPerformance = (userId, isMockedData = false) => {
 		return { performance: null, loading, error };
 	}
 
-	const rawPerformance = isMockedData ? findUserById(data, userId) : data;
+	let rawPerformance;
+	try {
+		rawPerformance = isMockedData ? findUserById(data, userId) : data;
+	} catch (error) {
+		return { performance: null, loading: false, error };
+	}
 
 	const performance = formatName(rawPerformance); //Format the name property
 
 	return { performance, loading, error };
-}
+};
